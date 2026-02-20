@@ -977,6 +977,18 @@ async function generateModels() {
 			maxTokens: 65535,
 		},
 		{
+			id: "gemini-2.5-flash-lite",
+			name: "Gemini 2.5 Flash Lite (Cloud Code Assist)",
+			api: "google-gemini-cli",
+			provider: "google-gemini-cli",
+			baseUrl: CLOUD_CODE_ASSIST_ENDPOINT,
+			reasoning: true,
+			input: ["text", "image"],
+			cost: { input: 0.1, output: 0.4, cacheRead: 0.01, cacheWrite: 0 },
+			contextWindow: 1048576,
+			maxTokens: 65536,
+		},
+		{
 			id: "gemini-2.0-flash",
 			name: "Gemini 2.0 Flash (Cloud Code Assist)",
 			api: "google-gemini-cli",
