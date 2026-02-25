@@ -2,6 +2,21 @@
 
 ## [Unreleased]
 
+## [0.55.0] - 2026-02-24
+
+### Breaking Changes
+
+- Resource precedence for extensions, skills, prompts, themes, and slash-command name collisions is now project-first (`cwd/.pi`) before user-global (`~/.pi/agent`). If you relied on global resources overriding project resources with the same names, rename or reorder your resources.
+- Extension registration conflicts no longer unload the entire later extension. All extensions stay loaded, and conflicting command/tool/flag names are resolved by first registration in load order.
+
+## [0.54.2] - 2026-02-23
+
+### Fixed
+
+- Fixed `.pi` folder being created unnecessarily when only reading settings. The folder is now only created when writing project-specific settings.
+- Fixed extension-driven runtime theme changes to persist in settings so `/settings` reflects the active `currentTheme` after `ctx.ui.setTheme(...)` ([#1483](https://github.com/badlogic/pi-mono/pull/1483) by [@ferologics](https://github.com/ferologics))
+- Fixed interactive mode freezes during large streaming `write` tool calls by using incremental syntax highlighting while partial arguments stream, with a final full re-highlight after tool-call arguments complete.
+
 ## [0.54.1] - 2026-02-22
 
 ### Fixed
